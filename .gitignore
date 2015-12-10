@@ -1,0 +1,10 @@
+#Eclipse files and folders
+.classpath
+.project
+.settings
+.idea
+*.log
+test-output
+*~
+target
+war

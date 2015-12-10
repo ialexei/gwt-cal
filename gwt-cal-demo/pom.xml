@@ -3,15 +3,17 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.bradrydzewski</groupId>
+	<parent>
+		<groupId>com.bradrydzewski</groupId>
+		<artifactId>gwt-cal-app</artifactId>
+		<version>0.9.5-SNAPSHOT</version>
+	</parent>
+	
 	<artifactId>gwt-cal-demo</artifactId>
-	<version>0.9.4-SNAPSHOT</version>
-	<packaging>war</packaging>
-
-	<properties>
-		<gwt.version>2.4.0</gwt.version>
-		<gwt-dnd.version>3.1.2</gwt-dnd.version>
-	</properties>
+	<packaging>jar</packaging>
+	<name>gwt-cal-demo</name>
+	<description>a personal calendar widget similar to iCal, Outlook, Google Calendar, etc </description>
+	<url>http://code.google.com/p/gwt-cal/</url>
 
 	<dependencies>
 		<dependency>
@@ -22,24 +24,20 @@
 		<dependency>
 			<groupId>com.allen-sauer.gwt.dnd</groupId>
 			<artifactId>gwt-dnd</artifactId>
-			<version>${gwt-dnd.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-servlet</artifactId>
-			<version>${gwt.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-user</artifactId>
-			<version>${gwt.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>com.google.gwt</groupId>
 			<artifactId>gwt-dev</artifactId>
-			<version>${gwt.version}</version>
 			<scope>provided</scope>
 		</dependency>		
 	</dependencies>
@@ -51,16 +49,16 @@
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.0.2</version>
+				<version>${maven-compiler-plugin.version}</version>
 				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>gwt-maven-plugin</artifactId>
-				<version>2.4.0</version>
+				<version>${gwt-maven-plugin.version}</version>
 				<executions>
 					<!-- GWT version detected from dependencyManagement -->
 					<execution>
@@ -81,7 +79,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1.1</version>
+				<version>${maven-war-plugin.version}</version>
 				<configuration>
 					<warSourceDirectory>war</warSourceDirectory>
 					<webXml>${basedir}/war/WEB-INF/web.xml</webXml>
@@ -90,7 +88,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.9</version>
+				<version>${maven-eclipse-plugin.version}</version>
 				<configuration>
 					<buildOutputDirectory>${basedir}/war/WEB-INF/classes</buildOutputDirectory>
 					<additionalProjectnatures>
