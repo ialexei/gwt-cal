@@ -32,7 +32,8 @@
 	<modules>
 		<module>gwt-cal</module>
 		<module>gwt-cal-demo</module>
-	</modules>
+    		<module>gwt-cal-demo2</module>
+  	</modules>
 
 	<dependencyManagement>
 		<dependencies>
